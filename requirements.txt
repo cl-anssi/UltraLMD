@@ -5,3 +5,6 @@ torch-geometric>=2.4.0
 ninja
 easydict
 pyyaml
+scikit-learn
+pandas
+numpy
