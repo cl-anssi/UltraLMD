@@ -1047,6 +1047,30 @@ class WikiTopicsMT4(MTDEAInductive):
         super(WikiTopicsMT4, self).__init__(**kwargs)
 
 
+############################################################
+# Datasets used for lateral movement detection experiments #
+############################################################
+
+class LMDDataset(TransductiveDataset):
+    delimiter = ','
+
+    def download(self):
+        # Override the download method to use already downloaded datasets
+        pass
+
+class LANL(LMDDataset):
+    name = 'lanl'
+
+class LANLRich(LMDDataset):
+    name = 'lanl-rich'
+
+class OpTC(LMDDataset):
+    name = 'optc'
+
+class OpTCRich(LMDDataset):
+    name = 'optc-rich'
+
+
 # a joint dataset for pre-training ULTRA on several graphs
 class JointDataset(InMemoryDataset):
 
@@ -1060,7 +1084,7 @@ class JointDataset(InMemoryDataset):
         'ConceptNet100k': ConceptNet100k,
         'DBpedia100k': DBpedia100k,
         'YAGO310': YAGO310,
-        'AristoV4': AristoV4,
+        'AristoV4': AristoV4
     }
 
     def __init__(self, root, graphs, transform=None, pre_transform=None):
@@ -1093,3 +1117,4 @@ class JointDataset(InMemoryDataset):
         # ]
 
         torch.save((train_data, valid_data, test_data), self.processed_paths[0])
+
