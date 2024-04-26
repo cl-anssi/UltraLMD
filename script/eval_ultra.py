@@ -297,7 +297,6 @@ if __name__ == '__main__':
         data,
         new_edges,
         batch_size=args.batch_size,
-        score=args.score,
         pred_nodes=pred_nodes
     )
     scores += eval_model(
@@ -306,7 +305,6 @@ if __name__ == '__main__':
         new_edges,
         batch_size=args.batch_size,
         flip=True,
-        score=args.score,
         pred_nodes=pred_nodes
     )
     res = {
