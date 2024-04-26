@@ -24,3 +24,9 @@ Note that it relies on
 incompatible with ULTRA's.
 Therefore, you should use different virtual environments to run the two
 scripts.
+
+The raw datasets can be obtained by following these links:
+[LANL](https://csr.lanl.gov/data/cyber1/),
+[OpTC](https://github.com/FiveDirections/OpTC-data).
+Their locations should be modified accordingly in the first two lines of
+`experiments.sh`.
