@@ -10,6 +10,23 @@ experiments presented in the paper, including data preprocessing,
 baseline models and implementation of our ULTRA-based anomaly detection
 method.
 
+### Contents
+
+The scripts used in our experiments are located in the `script/` directory:
+
+* `preprocessing.py` implements the preprocessing of the LANL and OpTC datasets;
+* `eval_ultra.py` implements lateral movement detection using ULTRA models;
+* `baseline.py` implements the two baseline models (HPF and PTF).
+
+The hyperparameters used in the fine-tuning and full training experiments
+(including batch size, number of negatives, number of epochs) can be found in
+the configuration files `config/transductive/finetuning.yaml` and
+`config/transductive/pretraining.yaml`, respectively.
+
+Finally, the raw results of our experiments are provided in the `results/`
+folder, and some tables and figures describing them can be found in the
+`results.ipynb` notebook.
+
 ### Usage
 
 The `experiments.sh` script reproduces all the steps in our experiments
