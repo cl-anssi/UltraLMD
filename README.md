@@ -1,50 +1,46 @@
-# Inductive Lateral Movement Detection in Enterprise Computer Networks
+_For the code related to the ESANN '24 paper "Inductive lateral movement
+detection in enterprise computer networks", switch to the `esann24`
+branch._
 
-This repository contains the code associated with our ESANN 2024
-[paper](https://doi.org/10.14428/esann/2024.ES2024-19)
-"Inductive lateral movement detection in enterprise computer networks".
+# Designing a Reliable Lateral Movement Detector Using a Graph Foundation Model
+
+<img src="img/illustration.png" width="1500px" />
+
+This repository contains the code associated with our paper
+"Designing a reliable lateral movement detector using a graph foundation model".
 It is based on a fork from the
 [ULTRA](https://github.com/DeepGraphLearning/ULTRA) project, which we
 use for lateral movement detection in our work.
-We added scripts and configuration files enabling reproduction of the
-experiments presented in the paper, including data preprocessing,
-baseline models and implementation of our ULTRA-based anomaly detection
-method.
+We added modules and scripts enabling reproduction of the
+experiments presented in the paper.
 
 ### Contents
 
-The scripts used in our experiments are located in the `script/` directory:
+The code used in our experiments is located in the `src/` directory:
 
-* `preprocessing.py` implements the preprocessing of the LANL and OpTC datasets;
-* `eval_ultra.py` implements lateral movement detection using ULTRA models;
-* `baseline.py` implements the two baseline models (HPF and PTF).
+* `extract_optc.py` implements the preprocessing of the OpTC dataset;
+* `extract_lanl.py` implements the preprocessing of the LANL dataset;
+* `model.py` implements our lateral movement detector UltraLMD++;
+* `graph.py` implements a helper class for handling graph-structured data;
+* `run_experiment.py` performs anomaly scoring on a given dataset.
 
-The hyperparameters used in the fine-tuning and full training experiments
-(including batch size, number of negatives, number of epochs) can be found in
-the configuration files `config/transductive/finetuning.yaml` and
-`config/transductive/pretraining.yaml`, respectively.
+The event IDs of lateral movement events in the OpTC dataset were labeled
+manually and can be found in the `optc_redteam.csv` file.
 
-Finally, the raw results of our experiments are provided in the `results/`
-folder, and some tables and figures describing them can be found in the
+Finally, the tables and figures describing our results are reproduced in the
 `results.ipynb` notebook.
 
 ### Usage
 
 The `experiments.sh` script reproduces all the steps in our experiments
-using ULTRA, from data preprocessing to model training and finetuning
-and lateral movement detection.
+on UltraLMD++, from data preprocessing to lateral movement detection.
 It relies on the dependencies listed in `requirements.txt`.
-
-In addition, the `baseline_experiments.sh` script reproduces our
-experiments using the baseline models HPF and PTF.
-Note that it relies on
-[PyCP-APR](https://github.com/lanl/pyCP_APR), whose requirements are
-incompatible with ULTRA's.
-Therefore, you should use different virtual environments to run the two
-scripts.
 
 The raw datasets can be obtained by following these links:
 [LANL](https://csr.lanl.gov/data/cyber1/),
 [OpTC](https://github.com/FiveDirections/OpTC-data).
 Their locations should be modified accordingly in the first two lines of
 `experiments.sh`.
+
+Results for the baseline method Argus were obtained using the code published
+by the authors, which can be found [here](https://github.com/C0ldstudy/Argus).
