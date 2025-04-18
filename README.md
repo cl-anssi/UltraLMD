@@ -1,6 +1,7 @@
 # Inductive Lateral Movement Detection in Enterprise Computer Networks
 
-This repository contains the code associated with our ESANN submission
+This repository contains the code associated with our ESANN
+[paper](https://doi.org/10.14428/esann/2024.ES2024-19)
 "Inductive lateral movement detection in enterprise computer networks".
 It is based on a fork from the
 [ULTRA](https://github.com/DeepGraphLearning/ULTRA) project, which we
